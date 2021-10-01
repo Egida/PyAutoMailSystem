@@ -1,4 +1,4 @@
-from smptlib import SMTP
+from smtplib import SMTP
 from email.message import EmailMessage
 
 
@@ -20,7 +20,7 @@ We wanted to welcome you from our hearts :)
 Kind Regards,
 Bla bla duhhh :d
 """ # example yourmessage string text
-def mailsystem_through_py_software(smtplib):
+def mailsystem_through_py_software():
     # 587 port is for SSL 
     connect = SMTP('smtp.gmail.com' , 587)
     connect.starttls()
