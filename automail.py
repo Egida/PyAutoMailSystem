@@ -9,21 +9,9 @@ from email.message import EmailMessage
 gmail = str("your gmail")
 password = str("your gmail pass")
 send_to = "target mail"
-
-def mailsystem_through_py_software(smtplib):
-    # 587 port is for SSL 
-    connect = SMTP('smtp.gmail.com' , 587)
-    connect.starttls()
-    connect.login(user=gmail, password=password)
-
-    msg = EmailMessage()
-    msg['Subject'] = 'Subject Text'
-    msg['From'] = 'your gmail'
-    msg['To'] = send_to
-
-    
-
-    message = f"""Hi dear consumer,
+subject = "Subject Tex
+yourmessage = """
+Hi dear consumer,
     
 We have seen that you did register on our forum!
 
@@ -31,9 +19,23 @@ We wanted to welcome you from our hearts :)
 
 Kind Regards,
 Bla bla duhhh :d
-""" # example email text
+""" # example yourmessage string text
+def mailsystem_through_py_software(smtplib):
+    # 587 port is for SSL 
+    connect = SMTP('smtp.gmail.com' , 587)
+    connect.starttls()
+    connect.login(user=gmail, password=password)
 
-    msg.set_content(message)    
-    connect.send_message(msg)
+    raw = EmailMessage()
+    raw['Subject'] = subject
+    raw['From'] = gmail
+    raw['To'] = send_to
+
+    
+
+    message = f"""{yourmessage}""" 
+
+    raw.set_content(message)    
+    connect.send_message(raw)
     
 mailsystem_through_py_software()
